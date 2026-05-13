@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div id="app">
+
+      <header>
+        <h1>Finance Tracker</h1>
+        <p id="greeting"></p>
+        <div id="stats">
+          <p id="summary">Loading...</p>
+          <p id="total-income"></p>
+          <p id="total-expenses"></p>
+        </div>
+      </header>
+
+      <section id="add-transaction">
+        <h2>Add Transaction</h2>
+        <input type="text" id="description-input" placeholder="Description">
+        <input type="number" id="amount-input" placeholder="Amount in ₸">
+        <select id="type-input">
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
+        </select>
+        <select id="category-input"></select>
+        <button id="save-button">Add Transaction</button>
+      </section>
+
+      <section id="budgets">
+        <h2>Budgets</h2>
+        <select id="budget-category-input"></select>
+        <input type="number" id="budget-amount-input" placeholder="Budget limit in ₸">
+        <button id="set-budget-btn">Set Budget</button>
+        <ul id="budget-list"></ul>
+      </section>
+
+      <section id="charts">
+        <h2>Spending by Category</h2>
+        <div id="charts-container">
+          <canvas id="expense-chart" width="300" height="300"></canvas>
+          <canvas id="income-chart" width="300" height="300"></canvas>
+        </div>
+      </section>
+
+      <section id="history">
+        <h2>Transaction History</h2>
+        <ul id="transaction-list"></ul>
+        <button id="clear-button">Clear All Transactions</button>
+      </section>
+      <input type="month" id="month-select">
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

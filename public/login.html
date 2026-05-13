@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Finance Tracker</h1>
+      </header>
+      <section id="login-section">
+        <h2>Login</h2>
+        <input type="text" id="username-input" placeholder="Username">
+        <input type="password" id="password-input" placeholder="Password">
+        <button id="login-btn">Login</button>
+        <p id="login-error" style="color: red;"></p>
+      </section>
+    </div>
+    <script>
+      document.getElementById("login-btn").addEventListener("click", async function() {
+        const username = document.getElementById("username-input").value;
+        const password = document.getElementById("password-input").value;
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        if (response.ok) {
+          window.location.href = '/';
+        } else {
+          document.getElementById("login-error").textContent = 'Invalid username or password';
+        }
+      });
+    </script>
+  </body>
+</html>
